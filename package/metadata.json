@@ -1,0 +1,19 @@
+{
+    "KPlugin": {
+        "Authors": [
+            {
+                "Email": "debugdeck@ryansinn.com",
+                "Name": "Ryan Sinn"
+            }
+        ],
+        "Category": "System Information",
+        "Description": "Realtime system log monitor with filtering, alerting and debugging tool launcher",
+        "Icon": "utilities-log-viewer",
+        "Id": "com.github.debugdeck",
+        "License": "GPL-2.0-or-later",
+        "Name": "DebugDeck",
+        "Version": "0.1.0"
+    },
+    "X-Plasma-API-Minimum-Version": "6.0",
+    "KPackageStructure": "Plasma/Applet"
+}

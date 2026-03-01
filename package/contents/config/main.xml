@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kcfg xmlns="http://www.kde.org/standards/kcfg/1.0"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.kde.org/standards/kcfg/1.0
+                          http://www.kde.org/standards/kcfg/1.0/kcfg.xsd">
+  <kcfgfile name=""/>
+
+  <group name="General">
+    <!-- Comma-separated list of systemd units to watch; empty = all -->
+    <entry name="watchedUnits" type="String">
+      <default></default>
+    </entry>
+
+    <!-- Maximum log lines to keep in memory -->
+    <entry name="maxRows" type="Int">
+      <default>5000</default>
+    </entry>
+
+    <!-- Auto-start log watching when widget loads -->
+    <entry name="autoStart" type="Bool">
+      <default>true</default>
+    </entry>
+
+    <!-- Minimum priority to alert on (0=emerg ... 3=error) -->
+    <entry name="alertPriority" type="Int">
+      <default>3</default>
+    </entry>
+
+    <!-- Enable system (KNotification) alerts -->
+    <entry name="notificationsEnabled" type="Bool">
+      <default>true</default>
+    </entry>
+
+    <!-- Minimum priority that triggers a system notification (0=emerg…7=debug) -->
+    <!-- 2=critical, 3=error, 4=warning, 5=notice -->
+    <entry name="notificationMinPriority" type="Int">
+      <default>3</default>
+    </entry>
+  </group>
+</kcfg>

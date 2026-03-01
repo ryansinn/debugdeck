@@ -1,0 +1,17 @@
+[Global]
+IconName=utilities-log-viewer
+Comment=DebugDeck Log Monitor
+
+[Event/newError]
+Name=New Error
+Comment=A new error or critical entry arrived in the system log
+Action=Popup
+Default=true
+Urgency=high
+
+[Event/newWarning]
+Name=New Warning
+Comment=A new warning entry arrived in the system log
+Action=Popup
+Default=true
+Urgency=normal
