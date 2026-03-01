@@ -23,30 +23,58 @@ A KDE Plasma 6 panel widget that gives you a real-time systemd journal monitor, 
 
 ## Requirements
 
-| Dependency | Version |
-|---|---|
-| KDE Plasma | 6.0+ |
-| Qt | 6.x |
-| KDE Frameworks | 6.x (CoreAddons, I18n, Notifications) |
-| `libsystemd` | optional — enables native journal fd; falls back to `journalctl` subprocess without it |
+DebugDeck includes a C++ plugin and must be built from source. There is no pre-built binary package.
+
+| Dependency | Version | Notes |
+|---|---|---|
+| KDE Plasma | 6.0+ | |
+| Qt6 | 6.x | Core, Qml, Quick, DBus |
+| KDE Frameworks 6 | 6.x | CoreAddons, I18n, Notifications |
+| CMake | 3.20+ | |
+| `libsystemd` | any | optional — native journal fd; falls back to `journalctl` without it |
 
 ## Installation
 
-### From KDE Store
+### Install build dependencies
 
-Search for **DebugDeck** in *System Settings → Plasma Widgets → Get New Widgets*, or visit the [KDE Store page](#).
+**Arch / Manjaro**
+```bash
+sudo pacman -S cmake extra-cmake-modules qt6-base qt6-declarative \
+               kf6-coreaddons kf6-i18n kf6-notifications plasma-framework \
+               systemd-libs
+```
 
-### Manual build from source
+**Fedora / RHEL**
+```bash
+sudo dnf install cmake extra-cmake-modules qt6-qtbase-devel qt6-qtdeclarative-devel \
+                 kf6-kcoreaddons-devel kf6-ki18n-devel kf6-knotifications-devel \
+                 plasma-devel systemd-devel
+```
+
+**Ubuntu / Debian (KDE Neon recommended)**
+```bash
+sudo apt install cmake extra-cmake-modules qt6-base-dev qt6-declarative-dev \
+                 libkf6coreaddons-dev libkf6i18n-dev libkf6notifications-dev \
+                 libplasma-dev libsystemd-dev
+```
+
+### Build and install
 
 ```bash
 git clone https://github.com/ryansinn/debugdeck.git
 cd debugdeck
 cmake -B build -DCMAKE_BUILD_TYPE=Release
 cmake --build build
-cmake --install build   # may need sudo
+sudo cmake --install build
 ```
 
 Then right-click your panel → *Add Widgets* → search **DebugDeck**.
+
+### Uninstall
+
+```bash
+sudo cmake --build build --target uninstall
+```
 
 ## Configuration
 
