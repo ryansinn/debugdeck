@@ -16,6 +16,13 @@
 - Default info bar layout: inline mode, icons off
 - Plasmashell reload instruction updated to use `systemctl --user restart plasma-plasmashell.service`
 
+### Upgrading from 0.1.0
+
+```bash
+kpackagetool6 --type Plasma/Applet --upgrade package/
+systemctl --user restart plasma-plasmashell.service
+```
+
 ## [0.1.0] – initial release
 
 - Live systemd journal tail with colour-coded severity
