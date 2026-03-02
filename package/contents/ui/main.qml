@@ -102,6 +102,12 @@ PlasmoidItem {
             anchors.fill: parent
             spacing: 0
 
+            // System info titlebar
+            SystemInfoBar {
+                Layout.fillWidth: true
+                visible: Plasmoid.configuration.infoBarEnabled
+            }
+
             // Alert banner
             AlertBanner { id: alertBanner; Layout.fillWidth: true }
 

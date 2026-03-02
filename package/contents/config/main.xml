@@ -36,5 +36,31 @@
     <entry name="notificationMinPriority" type="Int">
       <default>3</default>
     </entry>
+
+    <!-- Info Bar ──────────────────────────────────────────────────────────── -->
+    <!-- Master switch -->
+    <entry name="infoBarEnabled" type="Bool"><default>true</default></entry>
+
+    <!-- Visibility toggles -->
+    <entry name="infoShowHostname"     type="Bool"><default>true</default></entry>
+    <entry name="infoShowKernel"       type="Bool"><default>true</default></entry>
+    <entry name="infoShowPlasma"       type="Bool"><default>true</default></entry>
+    <entry name="infoShowKF"           type="Bool"><default>true</default></entry>
+    <entry name="infoShowQt"           type="Bool"><default>true</default></entry>
+    <entry name="infoShowWindowSystem" type="Bool"><default>true</default></entry>
+    <entry name="infoShowUptime"       type="Bool"><default>true</default></entry>
+
+    <!-- Custom short labels (shown in the bar; tooltip shows the full name) -->
+    <entry name="infoLabelHostname"     type="String"><default>Host</default></entry>
+    <entry name="infoLabelKernel"       type="String"><default>Kernel</default></entry>
+    <entry name="infoLabelPlasma"       type="String"><default>Plasma</default></entry>
+    <entry name="infoLabelKF"           type="String"><default>KF</default></entry>
+    <entry name="infoLabelQt"           type="String"><default>Qt</default></entry>
+    <entry name="infoLabelWindowSystem" type="String"><default>WS</default></entry>
+    <entry name="infoLabelUptime"       type="String"><default>Uptime</default></entry>
+
+    <!-- Global appearance -->
+    <entry name="infoShowIcons"   type="Bool"><default>false</default></entry>
+    <entry name="infoValueInline" type="Bool"><default>true</default></entry>
   </group>
 </kcfg>

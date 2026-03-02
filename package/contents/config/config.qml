@@ -12,4 +12,9 @@ ConfigModel {
         icon: "preferences-desktop-notification"
         source: "configNotifications.qml"
     }
+    ConfigCategory {
+        name: i18n("Info Bar")
+        icon: "help-about"
+        source: "configInfoBar.qml"
+    }
 }

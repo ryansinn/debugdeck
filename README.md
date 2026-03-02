@@ -11,6 +11,7 @@ A KDE Plasma 6 panel widget that gives you a real-time systemd journal monitor, 
 - **Desktop notifications** — sends KDE system notifications when errors or warnings arrive; fully configurable
 - **Alert banner** — an in-widget slide-in banner highlights the latest error for 8 seconds
 - **Compact badge** — the panel icon shows a live error/warning count so you always know something needs attention
+- **Info bar** — a configurable header showing hostname, kernel, Plasma, Frameworks, Qt, window system, and live uptime
 - **Tools tab** — one-click launchers for CPU, GPU, Bluetooth, USB, storage, network, and log utilities (btop, htop, nvtop, Wireshark, and more)
 
 ![DebugDeck tools panel](screenshots/view-tools.png)
@@ -60,6 +61,8 @@ sudo apt install cmake extra-cmake-modules qt6-base-dev qt6-declarative-dev \
 
 ### Build and install
 
+The first install requires a full build to get the C++ plugin onto your system:
+
 ```bash
 git clone https://github.com/ryansinn/debugdeck.git
 cd debugdeck
@@ -69,6 +72,25 @@ sudo cmake --install build
 ```
 
 Then right-click your panel → *Add Widgets* → search **DebugDeck**.
+
+### Updating (after first install)
+
+Once the C++ plugin is installed, UI-only updates can be applied without rebuilding. Either:
+
+- Install from the [KDE Store](https://store.kde.org) via *System Settings → Plasma Widgets → Get New Widgets* → search **DebugDeck**, or
+- Download the `.plasmoid` from [GitHub Releases](https://github.com/ryansinn/debugdeck/releases) and run:
+
+```bash
+kpackagetool6 --type Plasma/Applet --upgrade debugdeck-X.Y.Z.plasmoid
+```
+
+Then restart Plasma to load the updated QML:
+
+```bash
+systemctl --user restart plasma-plasmashell.service
+```
+
+To update the C++ plugin itself, pull the latest source and rebuild.
 
 ### Uninstall
 
@@ -86,6 +108,23 @@ sudo cmake --build build --target uninstall
 | Notifications | on | Send KDE system notifications for important log entries |
 | Notify on | Errors+ | Minimum severity that triggers a notification |
 
+### Info Bar
+
+| Setting | Default | Description |
+|---|---|---|
+| Show info bar | on | Show/hide the entire info bar |
+| Show icons | on | Show a small icon beside each field label |
+| Value inline | off | Show value to the right of the label instead of stacked below |
+| Hostname | on | Toggle the Hostname field |
+| Kernel | on | Toggle the Kernel field |
+| KDE Plasma Version | on | Toggle the Plasma version field |
+| KDE Frameworks Version | on | Toggle the Frameworks version field |
+| Qt Version | on | Toggle the Qt version field |
+| Window System | on | Toggle the Window System field |
+| Uptime | on | Toggle the live Uptime field |
+
+Each field also accepts a custom short label (shown in the bar); the full descriptive name is always shown as a tooltip on hover. Leave the label blank to use the built-in default.
+
 ## License
 
-GPL-2.0-or-later — see [LICENSE](LICENSE).
+GPL-2.0-or-later — see [LICENSE](LICENSE). See [CHANGELOG](CHANGELOG.md) for release history.
