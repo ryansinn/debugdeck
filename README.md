@@ -2,8 +2,6 @@
 
 A KDE Plasma 6 panel widget that gives you a real-time systemd journal monitor, log filtering, desktop notifications for errors, and a one-click launcher for common debugging tools — all from your taskbar.
 
-![DebugDeck log monitor](screenshots/view-logmonitor.png)
-
 ## Features
 
 - **Live journal tail** — streams entries from `journald` in real time, coloured by severity
@@ -14,13 +12,15 @@ A KDE Plasma 6 panel widget that gives you a real-time systemd journal monitor, 
 - **Info bar** — a configurable header showing hostname, kernel, Plasma, Frameworks, Qt, window system, and live uptime
 - **Tools tab** — one-click launchers for CPU, GPU, Bluetooth, USB, storage, network, and log utilities (btop, htop, nvtop, Wireshark, and more)
 
-![DebugDeck tools panel](screenshots/view-tools.png)
-
 ## Screenshots
 
-| Config – General | Config – Notifications | Example Notification |
+| Log monitor | Tools panel |
+|---|---|
+| ![DebugDeck log monitor](screenshots/view-logmonitor.png) | ![DebugDeck tools panel](screenshots/view-tools.png) |
+
+| Config – General | Config – Notifications | Config – Info Bar |
 |---|---|---|
-| ![General config](screenshots/config-general.png) | ![Notifications config](screenshots/config-notifications.png) | ![Notification](screenshots/example-notification.png) |
+| ![General config](screenshots/config-general.png) | ![Notifications config](screenshots/config-notifications.png) | ![Info Bar config](screenshots/config-infobar.png) |
 
 ## Requirements
 
@@ -113,8 +113,8 @@ sudo cmake --build build --target uninstall
 | Setting | Default | Description |
 |---|---|---|
 | Show info bar | on | Show/hide the entire info bar |
-| Show icons | on | Show a small icon beside each field label |
-| Value inline | off | Show value to the right of the label instead of stacked below |
+| Show icons | off | Show a small icon beside each field label |
+| Value inline | on | Show value to the right of the label instead of stacked below |
 | Hostname | on | Toggle the Hostname field |
 | Kernel | on | Toggle the Kernel field |
 | KDE Plasma Version | on | Toggle the Plasma version field |

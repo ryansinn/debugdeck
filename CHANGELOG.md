@@ -18,10 +18,22 @@
 
 ### Upgrading from 0.1.0
 
+**From the `.plasmoid` file:**
 ```bash
+kpackagetool6 --type Plasma/Applet --upgrade debugdeck-0.2.0.plasmoid
+systemctl --user restart plasma-plasmashell.service
+```
+
+> **Note:** After restarting Plasmashell, the existing widget instance should update automatically. If the info bar does not appear or config options are missing, remove the widget from your panel/desktop and re-add it to reset the configuration to the new defaults.
+
+**From source:**
+```bash
+git pull
 kpackagetool6 --type Plasma/Applet --upgrade package/
 systemctl --user restart plasma-plasmashell.service
 ```
+
+> **Note:** After restarting Plasmashell, the existing widget instance should update automatically. If the info bar does not appear or config options are missing, remove the widget from your panel/desktop and re-add it to reset the configuration to the new defaults.
 
 ## [0.1.0] – initial release
 
