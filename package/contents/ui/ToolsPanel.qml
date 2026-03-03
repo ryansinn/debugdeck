@@ -5,13 +5,16 @@ import QtQuick.Layouts
 import org.kde.plasma.components 3.0 as PlasmaComponents3
 import org.kde.kirigami as Kirigami
 
-import com.github.debugdeck
-
 // ─────────────────────────────────────────────────────────────────────────────
 //  Common debugging & monitoring tool launcher
 // ─────────────────────────────────────────────────────────────────────────────
 QQC2.ScrollView {
     id: root
+
+    // Passed in from main.qml via backend.item.launcher (Launcher singleton proxy).
+    // Null-safe calls below (launcher?.run / launcher?.runInTerminal) mean buttons
+    // are visible but inert if the plugin is somehow missing.
+    property var launcher: null
     clip: true
     contentWidth: availableWidth
 
@@ -26,9 +29,9 @@ QQC2.ScrollView {
         display: QQC2.AbstractButton.TextBesideIcon
         onClicked: {
             if (shellCmd !== "")
-                Launcher.runInTerminal(shellCmd)
+                root.launcher?.runInTerminal(shellCmd)
             else
-                Launcher.run(program, args)
+                root.launcher?.run(program, args)
         }
 
         PlasmaComponents3.ToolTip { text: parent.tooltip || parent.text }
