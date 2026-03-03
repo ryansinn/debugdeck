@@ -1,5 +1,24 @@
 # Changelog
 
+## [0.2.4] – 2026-03-02
+
+### Fixed
+- Unchecking the **Errors only** toggle now correctly resets the priority filter back to "All" instead of leaving it stuck at Error+
+- Priority combo box now stays in sync with the model — toggling **Errors only** off updates the combo to reflect "All"
+- Switched combo from `onCurrentIndexChanged` to `onActivated` to prevent feedback loop between UI and model
+
+### Upgrading to 0.2.4
+
+> **This release modifies `logfiltermodel.cpp` — a C++ rebuild and reinstall is required.**
+
+```bash
+git pull
+cmake --build build
+sudo cmake --install build
+kpackagetool6 --type Plasma/Applet --upgrade package/
+systemctl --user restart plasma-plasmashell.service
+```
+
 ## [0.2.2] – 2026-03-02
 
 ### Fixed

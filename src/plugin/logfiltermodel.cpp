@@ -51,9 +51,12 @@ void LogFilterModel::setErrorsOnly(bool v)
     beginFilterChange();
     m_errorsOnly = v;
     if (v)
-        m_minPriority = 3; // error threshold
+        m_minPriority = 3;  // error threshold
+    else
+        m_minPriority = 7;  // restore "show all" when toggled off
     endFilterChange(QSortFilterProxyModel::Direction::Rows);
     Q_EMIT errorsOnlyChanged();
+    Q_EMIT minPriorityChanged();  // keep combo in sync
 }
 
 bool LogFilterModel::filterAcceptsRow(int sourceRow, const QModelIndex &sourceParent) const

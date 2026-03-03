@@ -12,7 +12,7 @@
         "Id": "com.github.debugdeck",
         "License": "GPL-3.0",
         "Name": "DebugDeck",
-        "Version": "0.2.2"
+        "Version": "0.2.4"
     },
     "X-Plasma-API-Minimum-Version": "6.0",
     "KPackageStructure": "Plasma/Applet"

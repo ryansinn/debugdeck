@@ -31,14 +31,22 @@ RowLayout {
         }
     }
 
-    // Priority combobox
+    // Priority combobox – index driven by model's minPriority so it stays in
+    // sync when errorsOnly is toggled off and resets to 7.
     PlasmaComponents3.ComboBox {
         id: prioCombo
         model: ["All", "Warning+", "Error+", "Critical"]
-        onCurrentIndexChanged: {
+        readonly property var priorityMap: [7, 4, 3, 2]
+        // Derive index from model value so external changes are reflected
+        currentIndex: {
+            if (!root.filterModel) return 0
+            const p = root.filterModel.minPriority
+            const idx = priorityMap.indexOf(p)
+            return idx >= 0 ? idx : 0
+        }
+        onActivated: {
             if (!root.filterModel) return
-            const map = [7, 4, 3, 2]
-            root.filterModel.minPriority = map[currentIndex]
+            root.filterModel.minPriority = priorityMap[currentIndex]
         }
     }
 
