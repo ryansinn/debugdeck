@@ -1,5 +1,19 @@
 # Changelog
 
+## [0.2.2] – 2026-03-02
+
+### Fixed
+- Widget now always opens in full view (log monitor) instead of collapsing to a static compact icon
+- Added `preferredRepresentation: fullRepresentation` so Plasma defaults to the full view on placement
+- Added `Layout.minimumWidth`/`Layout.minimumHeight` on the full representation to prevent the widget from being created or resized below a usable size
+
+## [0.2.1] – 2026-03-02
+
+### Fixed
+- Plugin-missing screen now correctly intercepts a missing `com.github.debugdeck` plugin instead of showing Plasma's generic crash dialog
+- Moved `com.github.debugdeck` import into `LogBackend.qml` (loaded via `Loader`) so the full representation no longer fails to parse when the C++ plugin is absent
+- Removed stray `import com.github.debugdeck` from `ToolsPanel.qml`; `Launcher` is now passed in as a property from the backend
+
 ## [0.2.0] – 2026-03-01
 
 ### Added

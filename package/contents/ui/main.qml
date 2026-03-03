@@ -24,6 +24,11 @@ PlasmoidItem {
     property bool sharedRunning:      false
 
     // ── Plasmoid sizing ───────────────────────────────────────────────────────
+    // Always prefer the full view; never silently collapse to the compact icon.
+    // switchWidth/switchHeight are kept as a fallback for panel contexts where
+    // Plasma overrides preferredRepresentation, but the minimum on the full
+    // representation prevents the widget from being created below a usable size.
+    preferredRepresentation: fullRepresentation
     switchWidth:  Kirigami.Units.gridUnit * 28
     switchHeight: Kirigami.Units.gridUnit * 20
 
@@ -42,6 +47,9 @@ PlasmoidItem {
 
         implicitWidth:  Kirigami.Units.gridUnit * 46
         implicitHeight: Kirigami.Units.gridUnit * 32
+        // Hard floor – the widget cannot be resized smaller than this.
+        Layout.minimumWidth:  Kirigami.Units.gridUnit * 28
+        Layout.minimumHeight: Kirigami.Units.gridUnit * 20
 
         // ── C++ plugin backend ────────────────────────────────────────────────
         // Loaded dynamically so Loader.Error can be caught if the plugin is absent.
